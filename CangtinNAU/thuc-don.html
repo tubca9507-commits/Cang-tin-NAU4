@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thực đơn - Căng Tin Đại Học Nghệ An</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nau-header sticky-top">
+    <nav class="navbar navbar-expand-lg nau-navbar">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <span class="nau-brand-icon"><i class="bi bi-house-door-fill"></i></span>
+          <span class="nau-brand-text">CĂNG TIN ĐẠI HỌC NGHỆ AN</span>
+        </a>
+        <button class="navbar-toggler border-white text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nauNavbarCollapse" aria-controls="nauNavbarCollapse" aria-expanded="false" aria-label="Mở menu điều hướng">
+          <i class="bi bi-list fs-4"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="nauNavbarCollapse">
+          <ul class="navbar-nav align-items-lg-center gap-lg-2 me-lg-3 my-2 my-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="thuc-don.html">Thực đơn</a></li>
+            <li class="nav-item"><a class="nav-link" href="tin-tuc-khuyen-mai.html">Tin tức &amp; khuyến mãi</a></li>
+            <li class="nav-item"><a class="nav-link" href="lien-he-dich-vu.html">Liên hệ &amp; Dịch vụ</a></li>
+          </ul>
+          <button type="button" class="nau-cart-btn" id="cartButton">
+            <i class="bi bi-cart3"></i>
+            <span>Giỏ hàng</span>
+            <span class="nau-cart-badge" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-4 pb-3">
+    <div class="container">
+    <section class="nau-highlights-overlap">
+      <div class="container">
+        <div class="nau-highlights-card">
+          <div class="row text-center g-3">
+            <div class="col-6 col-md-3">
+              <div class="nau-highlight-icon"><i class="bi bi-cup-hot"></i></div>
+              <p class="nau-highlight-label">Món ăn đa dạng</p>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nau-highlight-icon"><i class="bi bi-wallet2"></i></div>
+              <p class="nau-highlight-label">Giá cả hợp lý</p>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nau-highlight-icon"><i class="bi bi-clock"></i></div>
+              <p class="nau-highlight-label">Thời gian</p>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="nau-highlight-icon"><i class="bi bi-heart"></i></div>
+              <p class="nau-highlight-label">Chất lượng mỗi ngày</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <div class="text-center mb-4">
+        <p class="nau-kicker">Thực đơn hôm nay</p>
+        <h1 class="nau-section-title">Khám phá món ngon</h1>
+        <p class="nau-section-subtitle">Nhiều món ăn hấp dẫn dành cho sinh viên</p>
+      </div>
+
+      <div class="row align-items-center justify-content-between g-3 mb-4">
+        <div class="col-12 col-md-5 col-lg-4">
+          <input type="text" id="menuSearchInput" class="form-control nau-search-input" placeholder="Nhập tên món ăn cần tìm" aria-label="Nhập tên món ăn cần tìm" />
+        </div>
+        <div class="col-12 col-md-7 col-lg-auto">
+          <div class="d-flex flex-wrap justify-content-md-end gap-2">
+            <button type="button" class="btn nau-filter-btn active" data-category="all">Tất cả (<span id="countAll">20</span>)</button>
+            <button type="button" class="btn nau-filter-btn" data-category="Món chính">Món chính</button>
+            <button type="button" class="btn nau-filter-btn" data-category="Đồ uống">Đồ uống</button>
+            <button type="button" class="btn nau-filter-btn" data-category="Ăn vặt">Ăn vặt</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-3" id="nauMenuGrid" data-mode="menu"></div>
+      <div id="emptyMenuAlert" class="text-center py-5 text-muted small fw-semibold d-none">
+        Không tìm thấy món ăn phù hợp với từ khóa của bạn.
+      </div>
+    </div>
+  </main>
+
+  <footer class="nau-footer">
+    <div class="container">
+      <div class="nau-footer-brand">CĂNG TIN ĐẠI HỌC NGHỆ AN</div>
+      <div class="nau-footer-slogan">Thơm ngon - Chất lượng - Giá cả sinh viên</div>
+      <p class="nau-footer-copy">&copy; 2026 Căng Tin Đại Học Nghệ An</p>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="nauToast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="nauToastMsg">Thông báo</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Đóng"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/Java.js"></script>
+</body>
+</html>
